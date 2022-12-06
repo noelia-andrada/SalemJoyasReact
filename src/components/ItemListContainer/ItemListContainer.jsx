@@ -1,5 +1,4 @@
 import ItemCard from "../ItemCard/ItemCard";
-import ItemCount from "../ItemCount/ItemCount";
 
 function ItemListContainer ({greeting}) {
     const greetingStyle = {fontSize: "200%"}
@@ -7,7 +6,6 @@ function ItemListContainer ({greeting}) {
         <div>
             <span style={greetingStyle}>{greeting}</span>
             <ItemCard/>
-            <ItemCount/>
         </div>
     )
 }

@@ -10,15 +10,15 @@ function ItemCount() {
     }
     
     const restar = () => {
-        if(count > 1) {
+        if(count > 0) {
             setCount (count - 1)
         }
     }
 
     return (
-        <section>
+        <section className="d-inline-block">
           <button onClick = {restar}>-</button>
-          <p>{count}</p>
+          <span>{count}</span>
           <button onClick = {sumar}>+</button>
         </section>
     )

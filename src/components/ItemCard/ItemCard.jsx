@@ -1,5 +1,7 @@
 import { useEffect } from "react";
 import { useState } from "react"
+import { Link } from "react-router-dom";
+import ItemCount from "../ItemCount/ItemCount";
 import gFetch from "../ItemProductList/ItemProductList";
 
 function ItemCard () {
@@ -13,19 +15,23 @@ function ItemCard () {
     }, [])
 
     return (
-        <div class="card">
+        <section className="card border border-secondary">
             {loading ? <img src="https://media.tenor.com/wXTO9bFFJXMAAAAC/loading-slow-internet.gif"
             alt="loading" title="loading"/>:
             prod.map(product => 
-            <div>
-                <img class="card-img-top" src="{`product.img`}" alt="Card image cap"/>
-                <div class="card-body">
-                    <h5 class="card-title">{product.nombre}</h5>
-                    <p class="card-text">${product.precio}</p>
-                    <a href="#" class="btn btn-primary">Más información</a>
-                 </div>
-            </div>)}
-        </div>
+            <div key={product.id}>
+                    <img className="card-img-top" src={product.img} alt="Card image cap"/>
+                    <div className="card-body">
+                        <h3 className="card-title">{product.nombre}</h3>
+                        <p className="card-text">${product.precio}</p>
+                        <Link to={`/detalles/${product.id}`}>
+                            <button>Más información</button>
+                        </Link>
+                    </div>
+                    <ItemCount/>
+                    <button>Agregar al carrito</button>
+                </div>)}
+        </section>
     )
 }
 
