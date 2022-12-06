@@ -1,13 +1,13 @@
-import NavBar from "../NavBar/NavBar";
-import TituloPrincipal from "../Titulo/Titulo";
+import ItemCard from "../ItemCard/ItemCard";
+import ItemCount from "../ItemCount/ItemCount";
 
 function ItemListContainer ({greeting}) {
     const greetingStyle = {fontSize: "200%"}
     return (
         <div>
             <span style={greetingStyle}>{greeting}</span>
-            <TituloPrincipal/>
-            <NavBar/>
+            <ItemCard/>
+            <ItemCount/>
         </div>
     )
 }
