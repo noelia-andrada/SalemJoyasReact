@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useEffect} from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import gFetch from "../ItemProductList/ItemProductList";
 
 function DetallesProducto () {
@@ -12,10 +12,10 @@ function DetallesProducto () {
 
     useEffect(() =>{
         gFetch()
-        .then(data => setProd(data.find(producto=> producto.id === productId)))
+        .then(data => setProd(data.find(producto=> producto.id ===  parseInt(productId))))
         .catch (err => err)
         .finally (()=> setLoading(false))
-    }, [])
+    }, [productId])
 
 
     return (
@@ -29,6 +29,9 @@ function DetallesProducto () {
                         <p className="card-text">${product.precio}</p>
                         <p className="card-text">{product.descripcion}</p>
                         <p className="card-text">Categoría: {product.categoria}</p>
+                        <Link to="/">
+                            <button className="border border-dark">Volver</button>
+                        </Link>
                     </div>
             </div>}
         </div>
