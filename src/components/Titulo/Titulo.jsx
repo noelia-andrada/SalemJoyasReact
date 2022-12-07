@@ -1,9 +1,13 @@
+import { NavLink } from 'react-router-dom';
 import './Titulo.css'
 
 function TituloPrincipal () {
     return (
         <div>
-            <h1 className="tituloPrincipal"> Salem Joyas</h1>
+            <NavLink to="/">
+                <h1 className="tituloPrincipal"> Salem Joyas</h1>
+            </NavLink>
+                
         </div>
     )
 }
