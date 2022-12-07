@@ -3,23 +3,16 @@ import CartWidget from '../CartWidget/CartWidget';
 import './NavBar.css'
 
 
+
 function NavBar () {
     return (
         <div className="divMenu">
-            <ul className="menu">
-                <NavLink to="/categoria/aros">
-                 <li><a href="#">Aros</a></li>
-                </NavLink>
-                <NavLink to="/categoria/collares">
-                  <li><a href="#">Collares</a></li>
-                </NavLink>
-                <NavLink to="/categoria/anillos">
-                  <li><a href="#">Anillos</a></li>
-                </NavLink>
-                <NavLink to="/categoria/dijes">
-                    <li><a href="#">Dijes</a></li>
-                </NavLink>
-			</ul>
+            <div className="menu">
+                <NavLink className="menuItem" to="/categoria/aros">Aros</NavLink>
+                <NavLink className="menuItem" to="/categoria/collares">Collares</NavLink>
+                <NavLink className="menuItem" to="/categoria/anillos">Anillos</NavLink>
+                <NavLink className="menuItem" to="/categoria/dijes">Dijes</NavLink>
+			</div>
             <CartWidget/>
             
         </div>

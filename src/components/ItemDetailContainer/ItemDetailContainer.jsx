@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { useEffect} from "react";
 import { Link, useParams } from "react-router-dom";
+import ItemCount from "../ItemCount/ItemCount";
 import gFetch from "../ItemProductList/ItemProductList";
 
-function DetallesProducto () {
+function ItemDetailContainer () {
     const [product , setProd] = useState({})
     const [loading, setLoading] = useState (true)
 
@@ -33,9 +34,10 @@ function DetallesProducto () {
                             <button className="border border-dark">Volver</button>
                         </Link>
                     </div>
+            <ItemCount/>
             </div>}
         </div>
     )
 }
 
-export default DetallesProducto;
+export default ItemDetailContainer;

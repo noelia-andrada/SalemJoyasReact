@@ -3,7 +3,7 @@ import ItemListContainer from './components/ItemListContainer/ItemListContainer'
 import NavBar from './components/NavBar/NavBar';
 import TituloPrincipal from "./components/Titulo/Titulo.jsx";
 import {BrowserRouter, Route, Routes} from "react-router-dom"
-import DetallesProducto from './components/ItemDetailContainer/ItemDetailContainer';
+import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 
 function App() {
   return (
@@ -13,7 +13,7 @@ function App() {
       <Routes>
         <Route path="/" element={<ItemListContainer greeting={"Bienvenidos a la tienda"}/>}/>
         <Route path="/categoria/:categoriaId" element={<ItemListContainer/>}/>
-        <Route path="/detalles/:productId" element={<DetallesProducto/>}/>
+        <Route path="/detalles/:productId" element={<ItemDetailContainer/>}/>
       </Routes>
     </BrowserRouter>
   )

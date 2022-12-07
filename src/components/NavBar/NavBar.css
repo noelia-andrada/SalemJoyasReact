@@ -1,13 +1,15 @@
 .divMenu {
     display: flex;
     justify-content: center;
+    justify-content: space-evenly;
 }
 
-.menu li {
+.menu {
     display: inline-block;
+
 }
 
-.menu li a {
+.menu .menuItem{
     font-weight: 200;
     text-transform: uppercase;
     color: white;
@@ -18,7 +20,7 @@
     transition: color 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
 }
 
-.menu li a:hover {
+.menu .menuItem:hover {
     box-shadow: inset 124px 0px 0px 20px white;
     color: black;
 }

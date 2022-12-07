@@ -12,10 +12,17 @@ function ItemListContainer ({greeting}) {
     const {categoriaId} = useParams()
 
     useEffect(()=> {
-        gFetch()
-        .then (data => setProd(data.filter(prod=>prod.categoria === categoriaId)))
-        .catch(err => err)
-        .finally(()=>setLoading(false))
+        if(categoriaId){
+            gFetch()
+            .then (data => setProd(data.filter(prod=>prod.categoria === categoriaId)))
+            .catch(err => err)
+            .finally(()=>setLoading(false))
+        }else{
+            gFetch()
+            .then (data => setProd(data))
+            .catch(err => err)
+            .finally(()=>setLoading(false))
+        }
     }, [categoriaId])
     
     return (
@@ -24,7 +31,7 @@ function ItemListContainer ({greeting}) {
             alt="loading" title="loading"/>:
             <div>
                 <span style={greetingStyle}>{greeting}</span>
-                <ItemList/>
+                <ItemList products={product}/>
             </div>}
         </div>
     )
