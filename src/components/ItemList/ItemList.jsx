@@ -14,7 +14,7 @@ function ItemList ({products}) {
     }, [])
 
     return (
-        <section className="card border border-secondary">
+        <section className="card border border-secondary flex-row">
             {loading ? <img src="https://media.tenor.com/wXTO9bFFJXMAAAAC/loading-slow-internet.gif"
             alt="loading" title="loading"/>:
             products.map(product => 
