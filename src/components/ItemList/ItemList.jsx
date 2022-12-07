@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import ItemCount from "../ItemCount/ItemCount";
 import gFetch from "../ItemProductList/ItemProductList";
 
-function ItemCard () {
+function ItemList () {
     const [prod, setProd] = useState([])
     const [loading, setLoading] = useState (true)
     useEffect(() =>{
@@ -35,4 +35,4 @@ function ItemCard () {
     )
 }
 
-export default ItemCard
+export default ItemList

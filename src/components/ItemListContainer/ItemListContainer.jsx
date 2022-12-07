@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import ItemCard from "../ItemCard/ItemCard";
+import ItemList from "../ItemList/ItemList";
 import gFetch from "../ItemProductList/ItemProductList";
+import './ItemListContainer.css'
 
 function ItemListContainer ({greeting}) {
     const greetingStyle = {fontSize: "200%"}
@@ -18,12 +19,12 @@ function ItemListContainer ({greeting}) {
     }, [categoriaId])
     
     return (
-        <div>
+        <div className="divGeneral">
             {loading ? <img src="https://media.tenor.com/wXTO9bFFJXMAAAAC/loading-slow-internet.gif"
             alt="loading" title="loading"/>:
             <div>
                 <span style={greetingStyle}>{greeting}</span>
-                <ItemCard/>
+                <ItemList/>
             </div>}
         </div>
     )
