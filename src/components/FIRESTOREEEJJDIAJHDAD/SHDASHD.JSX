@@ -1,4 +1,4 @@
-import {doc, getDocs, getFirestore} from "firebase/firestore"
+import {doc, getDocs, getFirestore, limit, orderBy, query, where} from "firebase/firestore"
 import { useEffect, useState } from "react"
 
 export const ItemDetail = () => {
@@ -7,8 +7,14 @@ export const ItemDetail = () => {
     useEffect(()=> {
         const db = getFirestore()
         const queryCollection = doc(db,"productos")
-        getDocs(queryCollection)
+
+        const queryFiltrada = query(queryCollection, where("categoria", "==", id, limit(6), orderBy("categoria", "asc")))
+
+        getDocs(queryFiltrada)
         .then(resp => setDbProd(resp.docs.map(producto => ({id: producto.id, ...producto.resp()}) )))
+        .catch(err => err)
+        .finally(()=>setLoading(false))
+
     }, [id])
 
     console.log(dbProduct)
