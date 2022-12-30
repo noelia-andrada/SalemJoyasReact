@@ -19,3 +19,16 @@ export const ItemDetail = () => {
 
     console.log(dbProduct)
 }
+
+//Para ItemDetailContainer:
+
+useEffect(()=> {
+    const db = getFirestore()
+    const queryDoc = doc(db,"productos", productId)
+
+    getDoc(queryDoc)
+    .then(resp => setDbProd({productId: resp.productId, ...resp.data()}))
+    .catch(err => err)
+    .finally(()=>setLoading(false))
+
+}, [productId])

@@ -7,7 +7,6 @@ import ItemDetailContainer from './container/ItemDetailContainer/ItemDetailConta
 import { createContext } from 'react';
 import { CartContextProvider } from './context/CartContext/CartContext';
 import CartContainer from './container/CartContainer/CartContainer';
-import CartWidget from './components/CartWidget/CartWidget';
 
 export const AppContext = createContext()
 
@@ -19,7 +18,7 @@ function App() {
           <NavBar/>
           <Routes>
             <Route path="/" element={<ItemListContainer greeting={"Bienvenidos a la tienda"}/>}/>
-            <Route path="/categoria/:categoriaId" element={<ItemListContainer/>}/>
+            <Route path="/categoria/:id" element={<ItemListContainer/>}/>
             <Route path="/detalles/:productId" element={<ItemDetailContainer/>}/>
             <Route path='/cart' element={<CartContainer/>}/>
           </Routes>

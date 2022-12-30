@@ -1,6 +1,6 @@
 import { Item } from "../Item/Item";
 
-function ItemList ({product, loading}) {
+function ItemList ({products, loading}) {
     return (
         <section className="card border border-secondary d-inline-block">
 
@@ -9,7 +9,7 @@ function ItemList ({product, loading}) {
             <img src="https://media.tenor.com/wXTO9bFFJXMAAAAC/loading-slow-internet.gif"
             alt="loading" title="loading"/>
                 :   
-            product.map(product => 
+            products.map(product => 
                 <Item key={product.id} product={product}/>
             )
             }
