@@ -32,7 +32,7 @@ function ItemListContainer ({greeting}) {
             .finally(()=> setLoading(false))   
         }      
     }, [id])
-
+    console.log("productos:", products )
     return (
         <div className="divGeneral">
             <span style={greetingStyle}>{greeting}</span>
