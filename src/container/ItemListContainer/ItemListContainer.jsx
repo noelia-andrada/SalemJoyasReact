@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ItemList from "../../components/ItemList/ItemList";
 import './ItemListContainer.css'
-import {doc, getDocs, getFirestore, limit, orderBy, query, where} from "firebase/firestore"
+import {collection, getDocs, getFirestore, limit, orderBy, query, where} from "firebase/firestore"
 
 function ItemListContainer ({greeting}) {
     const greetingStyle = {fontSize: "200%"}
@@ -15,18 +15,18 @@ function ItemListContainer ({greeting}) {
 
     useEffect(()=> {
         const db = getFirestore()
-        const queryCollection = doc(db,"productos")
-
+        const queryCollection = collection(db,"productos")
+        
         if(categoriaId){
-            const queryFiltrada = query(queryCollection, where("categoria", "==", categoriaId))
+            const queryFiltrada = query(queryCollection, where("categoria", "==", categoriaId, limit(6), orderBy("categoria", "asc")))
     
             getDocs(queryFiltrada)
-            .then(resp => setDbProd(resp.docs.map(producto => ({categoriaId: producto.categoriaId, ...producto.resp()}) )))
+            .then(resp => setDbProd(resp.docs.map(product => ({categoriaId: product.categoriaId, ...product.resp()}) )))
             .catch(err => err)
             .finally(()=>setLoading(false))
         }else{    
             getDocs(queryCollection)
-            .then(resp => setDbProd(resp.docs.map(producto => ({categoriaId: producto.categoriaId, ...producto.resp()}) )))
+            .then(resp => setDbProd(resp.docs.map(product => ({categoriaId: product.categoriaId, ...product.resp()}) )))
             .catch(err => err)
             .finally(()=>setLoading(false))
         }
